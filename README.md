@@ -31,12 +31,19 @@ __Update 1__
     * Might not need the extra level of organization 
     * regular functions in the main may suffice, and can implement template functions or other tricks that way
     
+__Update 2__
+* "Finished" the journal.write() member function
+  * Code won't compile due to LNK2019 and LNK1120 errors
+  * The issue might lie in using Entry objects in the Journal object
+    * Journal can't compile if Entry isn't defined first?
+  * Can try moving the member function to the Entry class instead of using the Entry class through Journal
+    * Essentially skipping the middle man 
 
 __References used__
 * SQLAPI+ documentation
   * http://www.sqlapi.com/
 * Some issues with using SQLAPI+
-  * checking error lnk2019
+  * checking error LNK2019
     * https://stackoverflow.com/questions/19886397/how-to-solve-the-error-lnk2019-unresolved-external-symbol-function/46673248
   * attempts to link library files
     * https://social.msdn.microsoft.com/Forums/vstudio/en-US/aa91d7f7-cc79-4b48-b852-94f7f1bd964a/how-use-install-the-sqlapi-library?forum=vcgeneral
