@@ -1,7 +1,22 @@
 #include <iostream>
 #include <string>
-#include "entry.h"			// since we use entry objects in member functions
+#include <fstream>
 using namespace std;
+
+class Entry {
+public:
+	Entry();
+	Entry(string date);
+	void write();
+	template<typename T>
+	void operator()(T input);
+	void operator()(string input);
+	void adddelim();
+private:
+	string filename;
+	string fileinput;
+	string delim;
+};
 
 class Journal {
 public:
