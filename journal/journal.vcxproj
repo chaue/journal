@@ -118,10 +118,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="entries.cpp" />
+    <ClCompile Include="entry.cpp" />
+    <ClCompile Include="index.cpp" />
     <ClCompile Include="journal.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="entry.h" />
     <ClInclude Include="journal.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
