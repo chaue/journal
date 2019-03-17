@@ -19,6 +19,7 @@ __UI Ideas__
 __Extras__
 * option for user and password combination, which will be stored in a file and read before the UI is shown. 
 * possible ways to encrypt files or password protect them?
+* write files in another directory
 
 __Update 1__
 * Outlined a super basic Journal class
@@ -38,6 +39,17 @@ __Update 2__
     * Journal can't compile if Entry isn't defined first?
   * Can try moving the member function to the Entry class instead of using the Entry class through Journal
     * Essentially skipping the middle man 
+    
+__Update 3__
+* Fixed compiling errors
+  * I combined the header and cpp files for the Journal and Entry classes into the Journal class' files
+  * Code compiles since classes and member functions can be declared and defined in order
+    * Entry needed to be declared and defined first due to Journal requiring them
+* Fixed compile error regarding the entry.operator() template function
+  * It turns out to_string couldn't accept certain data types as inputs, namely strings
+  * overloaded the template function with a string type (1)
+* Fixed file names to include the .txt extension 
+  * Realized files are written directly inside the project directory, could maybe add an option to write and store files in a preferred directory
 
 __References used__
 * SQLAPI+ documentation
@@ -49,3 +61,4 @@ __References used__
     * https://social.msdn.microsoft.com/Forums/vstudio/en-US/aa91d7f7-cc79-4b48-b852-94f7f1bd964a/how-use-install-the-sqlapi-library?forum=vcgeneral
 * reading a file using delimiters
   * http://www.cplusplus.com/forum/beginner/113465/
+* (1) https://stackoverflow.com/questions/40554964/c-how-to-check-if-variable-is-stdstring-type
