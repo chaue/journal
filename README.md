@@ -7,6 +7,19 @@ __Big Picture__
   * after attempts at debugging, I concluded the issues were out of the scope of this class and decided to use streams instead. 
 * will instead store information in files(which will be located in the project directory), future improvements can be made to improve security
 
+__UI Ideas__
+* start at intro screen and give options to write or read entries
+  * take user input as a number and show respective "page" based on choice 
+  * clear screen before showing new one to reduce clutter on screen?
+* pages for writing and reading entries procedurally accept inputs from user 
+  * after all inputs are checked and accepted, write the file and show confirmation
+  * after accepting indentifier, find and read the file, or show error message
+  * show a message to go back to intro screen after a key press
+  
+__Extras__
+* option for user and password combination, which will be stored in a file and read before the UI is shown. 
+* possible ways to encrypt files or password protect them?
+
 __Update 1__
 * Outlined a super basic Journal class
   * depends on an Entry class of some sort for now
