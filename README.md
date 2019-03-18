@@ -50,6 +50,14 @@ __Update 3__
   * overloaded the template function with a string type (1)
 * Fixed file names to include the .txt extension 
   * Realized files are written directly inside the project directory, could maybe add an option to write and store files in a preferred directory
+  
+__Update 4__
+* Fixed logic error with cin buffer
+  * After accepting an integer from the buffer, cin.clear() does not ignore the newline character
+  * changed it to cin.ignore() to skip over the newline character (2)
+  * quick fix for line number output when accepting text
+* Fixed lack of delimiters in file input
+  * faulty delimiter assignment in constructor for Entry
 
 __References used__
 * SQLAPI+ documentation
@@ -62,3 +70,4 @@ __References used__
 * reading a file using delimiters
   * http://www.cplusplus.com/forum/beginner/113465/
 * (1) https://stackoverflow.com/questions/40554964/c-how-to-check-if-variable-is-stdstring-type
+* (2) http://www.cplusplus.com/forum/beginner/203085/
