@@ -7,15 +7,15 @@ Entry::Entry() {
 }
 
 Entry::Entry(string date) {
-	filename = date;
+	filename = date + ".txt";			// need .txt for writing text files specifically
 	fileinput = "";
-	string delim = "|";
+	delim = "|";
 }
 
 void Entry::write() {
 	ofstream file;
 	file.open(filename);				// create new file
-	file << "/" << fileinput << "/";	// write the input from journal.write() to the file
+	file << fileinput;					// write the input from journal.write() to the file
 	file.close();
 }
 
@@ -51,18 +51,18 @@ void Journal::printintro() const {
 }
 
 void Journal::write() {
-	string date;
-	int rating;
-	string text;
+	string date = "";
+	int rating = 0;
+	string text  = "";
 	cout << "--------------------------\n";
 	cout << "Enter the date (mmddyy): ";
-	getline(cin, date);				// could add user input validation later
-	Entry e(date);			// assume correct input for now
+	getline(cin, date);						// could add user input validation later
+	Entry e(date);							// assume correct input for now
 
 	while (true) {
 		cout << "Rate from 1 to 10: ";
 		cin >> rating;
-		cin.clear();
+		cin.ignore(1);
 		if (rating > 0 && rating < 11) {	// check if input is between 1 to 10
 			e(rating);						// break loop if it is, stay in loop if not
 			e.adddelim();				
@@ -73,14 +73,17 @@ void Journal::write() {
 		}
 	}
 
-	cout << "Write entry (Enter \"end\" on new line to finish: \n";
-	while (text != "end") {
-		int count = 1;
+	cout << "Write entry (Enter \"end\" on new line to finish): \n";
+	int count = 1;
+	while (true) {
 		cout << "Line " << count << ": ";
 		getline(cin, text);
-		e(text);
-		e.adddelim();
-		count++;
+		if (text == "end") {					// if user types end, stop accepting input
+			break;
+		}
+		e(text);								// inputs that are not "end" are concated to file text
+		e.adddelim();							// delimit each line for consistent file output
+		count++;								// increment the line count
 	}
 
 	e.write();
