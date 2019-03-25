@@ -58,6 +58,14 @@ __Update 4__
   * quick fix for line number output when accepting text
 * Fixed lack of delimiters in file input
   * faulty delimiter assignment in constructor for Entry
+  
+__Update 5__ 
+* Looped the program and added option to quit 
+ * added error handling for file reading
+   * now if files do not exist(user entered a date that did not have a corresponding entry), the file is not read and the user is prompted to enter another one
+* clears screen after every action(write or read) (3)
+  * user can read the output before pressing enter to clear and move onto next action (4)
+* Next: add user and password combinations
 
 __References used__
 * SQLAPI+ documentation
