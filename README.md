@@ -71,3 +71,5 @@ __References used__
   * http://www.cplusplus.com/forum/beginner/113465/
 * (1) https://stackoverflow.com/questions/40554964/c-how-to-check-if-variable-is-stdstring-type
 * (2) http://www.cplusplus.com/forum/beginner/203085/
+* (3) http://www.cplusplus.com/articles/4z18T05o/#Windows
+* (4) https://stackoverflow.com/questions/42818899/detecting-enter-key-in-c
