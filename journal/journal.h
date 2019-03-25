@@ -8,6 +8,7 @@ public:
 	Entry();
 	Entry(string date);
 	void write();
+	void read();
 	template<typename T>
 	void operator()(T input);
 	void operator()(string input);
@@ -15,7 +16,7 @@ public:
 private:
 	string filename;
 	string fileinput;
-	string delim;
+	char delim;
 };
 
 class Journal {

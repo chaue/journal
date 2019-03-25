@@ -3,13 +3,12 @@
 Entry::Entry() {
 	filename = "";
 	fileinput = "";
-	string delim = "";
 }
 
 Entry::Entry(string date) {
 	filename = date + ".txt";			// need .txt for writing text files specifically
 	fileinput = "";
-	delim = "|";
+	delim = '|';
 }
 
 void Entry::write() {
@@ -17,6 +16,20 @@ void Entry::write() {
 	file.open(filename);				// create new file
 	file << fileinput;					// write the input from journal.write() to the file
 	file.close();
+}
+
+void Entry::read() {
+	string stuff;
+	int count = 1;
+	ifstream file;
+	file.open(filename);
+	getline(file, stuff, delim);
+	cout << "Rating: " << stuff << "\n";
+	while (getline(file, stuff, delim)) {
+		cout << "Line " << count << ": ";
+		cout << stuff << "\n";
+		count++;
+	}
 }
 
 template<typename T>
@@ -48,6 +61,7 @@ void Journal::printintro() const {
 	cout << "----------------\n";
 	cout << "1. Write\n";
 	cout << "2. Read\n";
+	cout << "3. Quit\n";
 }
 
 void Journal::write() {
@@ -57,7 +71,7 @@ void Journal::write() {
 	cout << "--------------------------\n";
 	cout << "Enter the date (mmddyy): ";
 	getline(cin, date);						// could add user input validation later
-	Entry e(date);							// assume correct input for now
+	Entry e(date);							// assume correct input for now (unused date)
 
 	while (true) {
 		cout << "Rate from 1 to 10: ";
@@ -90,8 +104,10 @@ void Journal::write() {
 }
 
 void Journal::read() {
-	string date;
-	cout << "not coded yet :/";
-	// instantiate entry object based on date
+	string date = "";
+	cout << "Enter date of entry: ";
+	getline(cin, date);
+	Entry e = Entry(date);					// assume file exists
+	e.read();
 	// entry.read();
 }
