@@ -8,11 +8,12 @@ public:
 	Entry();
 	Entry(string date);
 	void write();
-	void read();
+	int read();
 	template<typename T>
 	void operator()(T input);
 	void operator()(string input);
 	void adddelim();
+	bool checkcred(pair<string, string> p);
 private:
 	string filename;
 	string fileinput;
@@ -22,10 +23,11 @@ private:
 class Journal {
 public:
 	Journal();
-	Journal(string n);
+	Journal(pair<string, string> n);
 	void printintro() const;
 	void write();
 	void read();
 private:
 	string name;
+	pair<string, string> cred;
 };
