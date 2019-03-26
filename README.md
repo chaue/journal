@@ -67,6 +67,31 @@ __Update 5__
   * user can read the output before pressing enter to clear and move onto next action (4)
 * Next: add user and password combinations
 
+__Update 6__
+* Added a login "system" with username and passwords
+  * stores username and password combinations in login.txt
+    * the user is prompted to create a login if the file is empty(i.e. first time)
+  * user is prompted to log in when first starting the program (5)
+    * error handling checks that the user login matches a pair on login.txt before proceeding under that username
+  * password inputs are hidden from view for security (6)
+  * users cannot read entries that are not written by them
+* Shortcomings
+  * the username password pairs are not securely stored
+    * a user can directly open login.txt and view all the combinations
+  * due to the current system for writing entries, there can only be one entry per day(regardless of who wrote it)
+    * if one user wrote an entry on 01/01/0001, other users can no longer write an entry for that day
+* Possible solutions
+  * encrypting login.txt
+    * the file can be encrypted after updated(and decrypted before reading/checking combinations)
+  * different naming scheme for entry files
+    * this might defeat the purpose of verifying username/password before reading entries however
+    
+__PIC10 Concepts Used__
+* template functions
+  * the Entries class has a template function to accept any numeric input(int, double, etc) when writing into a file
+* function objects
+  * the Entries class uses the () operator to accept text inputs for writing
+
 __References used__
 * SQLAPI+ documentation
   * http://www.sqlapi.com/
@@ -81,3 +106,5 @@ __References used__
 * (2) http://www.cplusplus.com/forum/beginner/203085/
 * (3) http://www.cplusplus.com/articles/4z18T05o/#Windows
 * (4) https://stackoverflow.com/questions/42818899/detecting-enter-key-in-c
+* (5) https://stackoverflow.com/questions/2390912/checking-for-an-empty-file-in-c
+* (6) https://stackoverflow.com/questions/6899025/hide-user-input-on-password-prompt
